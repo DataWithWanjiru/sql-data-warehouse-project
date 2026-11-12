@@ -157,4 +157,17 @@ SELECT
 			ELSE 'n/a'
 			END AS gen
   FROM [DataWarehouse].[Bronze].[erp_cust_az12]
- 
+
+/*======================== erp_loc_a101 */
+
+INSERT INTO [DataWarehouse].[Silver].[erp_loc_a101] (cid,cntry)
+SELECT REPLACE ([cid],'-','') AS cid--Data Standardization and Consistency
+	  ,CASE WHEN UPPER(TRIM ([cntry])) IN ('USA','US')
+	        THEN 'United States'
+			WHEN UPPER(TRIM ([cntry])) = '' OR UPPER(TRIM ([cntry])) IS NULL
+			THEN 'n/a'
+			WHEN UPPER(TRIM ([cntry])) = 'DE'
+			THEN 'Germany'
+			ELSE TRIM( [cntry])
+			END AS cntry
+FROM   [DataWarehouse].[Bronze].[erp_loc_a101]
