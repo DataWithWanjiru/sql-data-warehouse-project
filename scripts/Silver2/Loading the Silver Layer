@@ -171,3 +171,16 @@ SELECT REPLACE ([cid],'-','') AS cid--Data Standardization and Consistency
 			ELSE TRIM( [cntry])
 			END AS cntry
 FROM   [DataWarehouse].[Bronze].[erp_loc_a101]
+
+/*=============================== erp_px_cat_g1v2 */
+INSERT INTO [DataWarehouse].[silver].[erp_px_cat_g1v2] 
+	  ([id]
+      ,[cat]
+      ,[subcat]
+      ,[maintenance])
+
+SELECT [id]
+      ,[cat]
+      ,[subcat]
+      ,[maintenance]
+  FROM [DataWarehouse].[Bronze].[erp_px_cat_g1v2]
