@@ -1,14 +1,19 @@
 
-/*To Do's
+/* Do's
+
+This script truncates the ilver table and then loads the updated and transformed datasets into the silver tables.
+Below are some data tranformations done to the data: 
 1. Checking and Removing duplicates
 2. Remove unwanted spaces on the string values
-3. Standardize the values to ensure consistency
-4. Create Derived Columns(Based off of what we already have
+3. Standardize the values to ensure consistency i.e Y to Yes, M to Male
+4. Create Derived Columns(Based off of what we already have) ie, the cat_id Column
 5. Handled NULL Values with ISNULL
-6. DataType Casting
-5. Then Insert into the Silver Layer*/
-/* ====================================================================== PRODUCT INFORMATION*/
+6. DataType Casting for Load Durations and others
 
+To Execute, use example the code: EXEC silver.loads_silver_layer
+Parameter: None. This store procedure does not acept any parameters or return any value
+*/
+/* ====================================================================== PRODUCT INFORMATION*/
 
 USE [DataWarehouse];
 GO
